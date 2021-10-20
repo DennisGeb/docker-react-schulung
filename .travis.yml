@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run -e CI=true degeb/docker-react npm run test -- --coverage
+
+# part for aws
+#deploy:
+#  provider: elasticbeanstalk
+#  region: "us-west-1" # depends on where i created elasticbeans instance -> copy url from dashboard
+#  app: "docker-react-schulung" # name seen in aws dashboard All Apllications > NAME > ENVIRONMENT
+#  env: "Docker-env" # environment seen in aws dashboard All Apllications > NAME > ENVIRONMENT 
+#  bucket_name: "elastivbeanstalk-us-west-2-306476627547" # bucket that travis will put zip file containing app files into -> autocreated aws -> services -> s3 elasticbeanstalk-REGION-ID
+#  bucket_path: "docker-react-schulung" # app name
+#  on:
+#    branch: master # only deplay on master not feature branch
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
