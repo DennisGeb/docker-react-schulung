@@ -1,0 +1,13 @@
+FROM node:alpine
+     
+USER node
+     
+RUN mkdir -p /home/node/app
+WORKDIR /home/node/app
+     
+COPY --chown=node:node ./package.json ./
+RUN npm install
+# could be left out but is nice to leave in for prod or later use:
+COPY --chown=node:node ./ ./
+     
+CMD ["npm", "start"]
