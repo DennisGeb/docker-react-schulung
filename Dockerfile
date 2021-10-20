@@ -14,7 +14,7 @@ RUN npm run build
 
 # assumes that previous block is already complete -> from says this is new block
 FROM nginx
-
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # default command wil start nginx automatically
